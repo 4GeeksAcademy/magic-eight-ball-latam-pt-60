@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="predict">Hola te dare un pronostico!.</h1>
+    <script>
+        let options = [
+            "Seguro que sí",
+            "Definitivamente sí",
+            "Sin lugar a dudas",
+            "Sí, definitivamente",
+            "Cuenta con eso",
+            "Por lo que veo, sí",
+            "Lo más probable",
+            "Se ve bien",
+            "Sí",
+            "Todo indica que sí",
+            "No se entiende bien, vuelve a preguntar",
+            "Pregunta más tarde",
+            "Mejor no te lo digo ahora",
+            "No puedo predecirlo ahora",
+            "Concéntrate y pregunta otra vez",
+            "No cuentes con eso",
+            "Mi respuesta es no",
+            "Mis fuentes dicen que no",
+            "No pinta bien",
+            "Muy dudoso",
+            "Chivo que se devuelve se desnuca",
+            "A falta de pan, tortilla",
+            "Para todo mal, un trago; para todo bien, también",
+            "No sé",
+            "El que no sigue consejo, no llega a viejo.",
+            "LA CEBOLLA!"
+        ]
+
+
+        function seleccionarAletorioDeLista(lista) {
+            let numeroAleatorio = Math.random()
+            let numerolAleatorioEntero = Math.floor(numeroAleatorio * lista.length)
+            return {
+                prediccion: lista[numerolAleatorioEntero],
+                numero: numerolAleatorioEntero
+            }
+        }
+
+        function cambiarColoresSegunNumero(numero) {
+            let mitadDeMiListaDeOpciones = options.length / 2;
+            if (numero < mitadDeMiListaDeOpciones) {
+                elementoPrediccion.style.color = "red";
+            } else {
+                elementoPrediccion.style.color = "green";
+            }
+        }
+
+        let elementoPrediccion = document.querySelector("#predict");
+        let objetoPrediccion = seleccionarAletorioDeLista(options);
+        elementoPrediccion.innerHTML = objetoPrediccion.prediccion;
+        cambiarColoresSegunNumero(objetoPrediccion.numero);
+
+
+    </script>
+</body>
+
+</html>
